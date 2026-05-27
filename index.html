@@ -1,0 +1,216 @@
+<!-- ========================= -->
+<!-- SAVE AS: index.html -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MediTrack Dashboard</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+
+<div id="loginPage">
+
+  <div class="login-card">
+
+    <div class="login-icon">💊</div>
+
+    <h1>MediTrack</h1>
+
+    <p>Medicine Availability & Shortage Monitoring System</p>
+
+    <input type="text" id="username" placeholder="Username">
+
+    <input type="password" id="password" placeholder="Password">
+
+    <button class="login-btn" onclick="login()">
+      Sign In
+    </button>
+
+    <p id="loginError">
+      Invalid Username or Password
+    </p>
+
+    <p class="demo-text">
+      Demo Login: admin / admin123
+    </p>
+
+  </div>
+
+</div>
+
+<!-- MAIN WEBSITE -->
+
+<div id="mainWebsite">
+
+  <!-- NAVBAR -->
+
+  <div class="navbar">
+
+    <div class="nav-brand">
+      <h2>💊 MediTrack Dashboard</h2>
+      <span>Medicine Monitoring System</span>
+    </div>
+
+    <div class="nav-actions">
+
+      <button class="btn btn-theme" onclick="toggleTheme()">
+        🌙 Theme
+      </button>
+
+      <button class="btn btn-danger" onclick="logout()">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+      <div>
+
+        <h1>Inventory Control Center</h1>
+
+        <p>
+          Monitor medicine stock levels, detect shortages,
+          and manage hospital inventory efficiently.
+        </p>
+
+      </div>
+
+      <div class="hero-badge">
+
+        <div class="badge-icon">🏥</div>
+
+        <span>LIVE</span>
+        <span>MONITOR</span>
+
+      </div>
+
+    </div>
+
+    <!-- STAT CARDS -->
+
+    <div class="cards-grid">
+
+      <div class="stat-card card-critical">
+        <span class="stat-num" id="criticalCount">0</span>
+        <p>Critical</p>
+      </div>
+
+      <div class="stat-card card-low">
+        <span class="stat-num" id="lowCount">0</span>
+        <p>Low Stock</p>
+      </div>
+
+      <div class="stat-card card-adequate">
+        <span class="stat-num" id="adequateCount">0</span>
+        <p>Adequate</p>
+      </div>
+
+      <div class="stat-card card-surplus">
+        <span class="stat-num" id="surplusCount">0</span>
+        <p>Surplus</p>
+      </div>
+
+    </div>
+
+    <!-- FORM PANEL -->
+
+    <div class="panel">
+
+      <h2>➕ Add Medicine</h2>
+
+      <div class="form-grid">
+
+        <input type="text" id="medName" placeholder="Medicine Name">
+
+        <input type="number" id="currentStock" placeholder="Current Stock">
+
+        <input type="number" id="minRequired" placeholder="Minimum Required">
+
+        <input type="number" id="expiryDays" placeholder="Expiry Days">
+
+        <input type="text" id="supplier" placeholder="Supplier Name">
+
+        <button class="btn btn-analyze" onclick="analyzeMedicine()">
+          Analyze Medicine
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search Medicine"
+        onkeyup="searchMedicine()"
+      >
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="panel">
+
+      <div class="table-header">
+
+        <h2>📋 Medicine Inventory</h2>
+
+        <button class="btn btn-danger" onclick="resetData()">
+          Reset Data
+        </button>
+
+      </div>
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Medicine</th>
+            <th>Stock</th>
+            <th>Minimum</th>
+            <th>Expiry</th>
+            <th>Supplier</th>
+            <th>Status</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="medTable"></tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
