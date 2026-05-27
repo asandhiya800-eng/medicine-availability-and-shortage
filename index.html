@@ -1,24 +1,20 @@
-<!-- ========================= -->
-<!-- SAVE AS: index.html -->
-<!-- ========================= -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>MediTrack Dashboard</title>
 
+  <!-- CSS File -->
   <link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <!-- LOGIN PAGE -->
-
 <div id="loginPage">
 
   <div class="login-card">
@@ -27,7 +23,7 @@
 
     <h1>MediTrack</h1>
 
-    <p>Medicine Availability & Shortage Monitoring System</p>
+    <p>Medicine Availability & Shortage Monitoring</p>
 
     <input type="text" id="username" placeholder="Username">
 
@@ -38,11 +34,11 @@
     </button>
 
     <p id="loginError">
-      Invalid Username or Password
+      Invalid username or password
     </p>
 
-    <p class="demo-text">
-      Demo Login: admin / admin123
+    <p class="demo">
+      Try: admin / admin123
     </p>
 
   </div>
@@ -50,11 +46,9 @@
 </div>
 
 <!-- MAIN WEBSITE -->
-
 <div id="mainWebsite">
 
   <!-- NAVBAR -->
-
   <div class="navbar">
 
     <div class="nav-brand">
@@ -77,37 +71,27 @@
   </div>
 
   <!-- CONTENT -->
-
   <div class="content">
 
     <!-- HERO -->
-
     <div class="hero">
 
       <div>
-
         <h1>Inventory Control Center</h1>
 
         <p>
-          Monitor medicine stock levels, detect shortages,
-          and manage hospital inventory efficiently.
+          Monitor medicine stock levels and shortages in real time.
         </p>
-
       </div>
 
       <div class="hero-badge">
-
-        <div class="badge-icon">🏥</div>
-
+        <span class="badge-icon">🏥</span>
         <span>LIVE</span>
-        <span>MONITOR</span>
-
       </div>
 
     </div>
 
     <!-- STAT CARDS -->
-
     <div class="cards-grid">
 
       <div class="stat-card card-critical">
@@ -132,55 +116,48 @@
 
     </div>
 
-    <!-- FORM PANEL -->
+    <!-- ADD MEDICINE -->
+    <div class="panel form-panel">
 
-    <div class="panel">
-
-      <h2>➕ Add Medicine</h2>
+      <h2>Add Medicine Record</h2>
 
       <div class="form-grid">
 
-        <input type="text" id="medName" placeholder="Medicine Name">
+        <input type="text"
+               id="medName"
+               placeholder="Medicine Name">
 
-        <input type="number" id="currentStock" placeholder="Current Stock">
+        <input type="number"
+               id="currentStock"
+               placeholder="Current Stock">
 
-        <input type="number" id="minRequired" placeholder="Minimum Required">
+        <input type="number"
+               id="minRequired"
+               placeholder="Minimum Required">
 
-        <input type="number" id="expiryDays" placeholder="Expiry Days">
+        <input type="text"
+               id="supplier"
+               placeholder="Supplier Name">
 
-        <input type="text" id="supplier" placeholder="Supplier Name">
-
-        <button class="btn btn-analyze" onclick="analyzeMedicine()">
-          Analyze Medicine
+        <button class="btn btn-analyze"
+                onclick="analyzeMedicine()">
+          Analyze
         </button>
 
       </div>
 
     </div>
 
-    <!-- SEARCH -->
-
-    <div class="search-box">
-
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="🔍 Search Medicine"
-        onkeyup="searchMedicine()"
-      >
-
-    </div>
-
     <!-- TABLE -->
-
     <div class="panel">
 
-      <div class="table-header">
+      <div class="table-header-row">
 
-        <h2>📋 Medicine Inventory</h2>
+        <h2>Medicine Inventory</h2>
 
-        <button class="btn btn-danger" onclick="resetData()">
-          Reset Data
+        <button class="btn btn-danger"
+                onclick="resetData()">
+          Reset
         </button>
 
       </div>
@@ -191,16 +168,17 @@
 
           <tr>
             <th>Medicine</th>
-            <th>Stock</th>
-            <th>Minimum</th>
-            <th>Expiry</th>
+            <th>Current Stock</th>
+            <th>Minimum Required</th>
             <th>Supplier</th>
             <th>Status</th>
           </tr>
 
         </thead>
 
-        <tbody id="medTable"></tbody>
+        <tbody id="medTable">
+
+        </tbody>
 
       </table>
 
@@ -210,6 +188,7 @@
 
 </div>
 
+<!-- JavaScript File -->
 <script src="script.js"></script>
 
 </body>
